@@ -1,1 +1,46 @@
-# 
+# Caso de Uso: Consulta de Portarias de Situação Cadastral
+
+## 1. Identificação
+**Nome:** Consulta de Portarias de Situação Cadastral  
+**Código:** CAD_XXX  
+**Ator Primário:** Usuário do Módulo Cadastro  
+**Descrição:** Permite que o usuário consulte as portarias de situação cadastral aplicadas a contribuintes, conforme critérios informados.
+
+## 2. Fluxo Principal
+1. O usuário acessa o sistema e navega até o menu `Cadastro > Contribuintes > Consultas > Portarias de Situação Cadastral`.
+2. O sistema exibe a tela de consulta de portarias de situação cadastral.
+3. O usuário informa os filtros desejados para a pesquisa:
+   - Tipo de portaria (Baixa Ex Officio, Cancelamento, Cassação, Restabelecimento, Restabelecimento Imediato, Suspensão);
+   - Fundamento legal (condicionado ao tipo de portaria escolhido);
+   - Período de publicação;
+   - Número da portaria;
+   - Inscrição estadual;
+   - CNPJ;
+   - Elemento organizacional.
+4. O usuário aciona o botão `Consultar`.
+5. O sistema valida os filtros informados (nenhum campo pode estar 100% em branco).
+6. O sistema busca os registros correspondentes e exibe o resultado da consulta em uma tabela com as seguintes colunas:
+   - Inscrição Estadual
+   - CNPJ
+   - Número da Portaria
+   - Data
+   - Tipo
+   - Fundamento Legal
+   - Elemento Organizacional
+7. O usuário pode exportar os dados da consulta em formato CSV ou PDF.
+
+## 3. Fluxos Alternativos
+- **FA1 - Nenhum registro encontrado:**
+  1. Se nenhum registro for encontrado, o sistema exibe uma mensagem informativa `Nenhum resultado encontrado para os critérios informados.`
+  2. O usuário pode ajustar os filtros e realizar nova consulta.
+
+## 4. Regras de Negócio
+- **RN1:** Nenhum campo pode estar completamente em branco na pesquisa.
+- **RN2:** O fundamento legal disponível para seleção deve estar condicionado ao tipo de portaria escolhido.
+- **RN3:** A tela deve seguir o mesmo padrão da consulta de processos REDESIM (CAD_370).
+
+## 5. Pré-condições
+- O usuário deve possuir acesso ao módulo de Cadastro no sistema.
+
+## 6. Pós-condições
+- O usuário obtém os resultados da pesquisa conforme os critérios informados.
